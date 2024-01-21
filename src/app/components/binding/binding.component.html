@@ -1,0 +1,50 @@
+<h1 class="text-red-500">Text Interpolation</h1>
+<p>Olá: {{nome}}, teste da subtração: {{subtracao(79, 10)}}</p>
+<p>{{condition}}</p>
+
+<hr>
+
+<h1>Property Binding</h1>
+<!-- Estrutura: <element [property]="value">Text</element> -->
+<button [disabled]="desabilitado" class="bg-red-500">Butão</button>
+<img [src]="imgLink" [title]="nome">
+
+<hr>
+
+<h1 title="Atributo">Atribute Binding</h1>
+<!-- Estrutura:  <element [attr.attribute-you-are-targeting]="value">Text</element>-->
+<p [attr.title]="nome" [attr.aria-label]="nome">Giovani Binding</p>
+
+<hr>
+
+<h1>Class and Style Binding</h1>
+<!--  -->
+<p [style.color]="cor">{{nome}}</p>
+
+<hr>
+
+<h1>Event Binding</h1>
+<!-- Estrutura: <element (TargetEventName)="TemplateStatement">Text</element> -->
+<h2>{{contador}}</h2>
+<button (click)="contadorSomar()" class="bg-green-500">Somar</button>
+<button (click)="contadorSubtrair()" class="bg-red-500">Subtrair</button>
+<h2>Input aqui embaixo</h2>
+<input type="text" class="text-red-500 border-2  border-red-500" (keydown.t)="onKeyDown($event)" />
+<!-- O de baixo só funciona com mouse, não funciona com o "Dedo" do celular -->
+<h2>Olhe o console:</h2>
+<div class="bg-red-500 w-60 h-60" (mousemove)="onMouseMove($event)"></div>
+
+<hr>
+
+<h1>Two-way Binding</h1>
+<!-- Importar o FormsModule -->
+<!-- Estrutura: <element [(ngModel)]="value">Text</element> -->
+<input type="text" [(ngModel)]="nome" class="border-red-500 border-2"> {{ nome }}
+
+<hr>
+
+<h1>Diretivas de Atributos</h1>
+<h2>Classes condicionais</h2>
+<!-- Estrutura: <element *ngIf="condition">Text</element> -->
+<div [ngClass]="{ 'bg-red-500': idade >= 18 }">Estilo dinâmico</div>
+<div [ngStyle]="{ color: idade > 18 ? 'green' : 'red'  }">Estilo dinâmico 2</div>

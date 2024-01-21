@@ -1,0 +1,39 @@
+<h1>Deferrable Views</h1>
+
+<!-- Parâmetros do defer (on): -->
+
+<!-- Normalmente esse parâmetros podem ser como se fossem um OR -->
+
+<!-- idle: Quando o navegado está inativo -->
+<!-- timer: Tempo em segundos para aparecer o conteúdo -->
+<!-- viewport: Só carrega o trecho quando a tela passar sobre ele -->
+<!-- interaction: Só carrega depois de você clicar no componente ou fazer uma ação como um botão -->
+<!-- hover: Ao passar o mouse por cima -->
+<!-- immediate: Carrega imediatamente ao carregar todas as outras coisas -->
+<!-- prefetch: Já deixa carregado o conteúdo sem o loading mas só carrega quando você fazer outra ação  -->
+
+<!-- Trecho de código ou componente que vai ser carregado depois de todo hmtl, css ou js com alguns parâmetros que
+  podem ser adicionados -->
+<h2>Defer com ON</h2>
+<button #Ativador class="border-black border-2 bg-green-400">Ativador</button> @defer (on interaction(Ativador)) {
+<div>Defer Div</div>
+} @placeholder {
+<!-- Aparece antes de carregar o chunk (já está baixado)-->
+<div>Placeholder...</div>
+} @loading {
+<!-- Enquanto faz o download do chunk -->
+<div>Carregando...</div>
+} @error {
+<!-- Quando dá algum erro como queda de internet ou algo mais -->
+<div>Erro de carregamento!</div>
+}
+<h2>Defer com WHEN</h2>
+<button (click)="condition = true">Iniciar Timer</button> @defer (when condition) {
+<div>When Div</div>
+} @placeholder(minimum 5s) {
+<div>When placeholder...</div>
+} @loading(after 100ms; minimum 5s) {
+<div>When Carregando...</div>
+} @error {
+<div>Erro</div>
+}

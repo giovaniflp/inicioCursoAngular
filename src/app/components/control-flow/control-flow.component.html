@@ -1,0 +1,52 @@
+<header>
+    <h1>Control Flow</h1>
+</header>
+
+<h2>ngIf</h2>
+
+@if (numeroComparator >= 3) {
+<div>Renderizado</div>
+} @else if (numeroComparator == 1) {
+<div>Renderizado2</div>
+} @else {
+<div>ELSE FINAL</div>
+}
+
+<h2>ngFor</h2>
+
+<h2>Lista de Array</h2>
+<ul>
+    @for (item of dataArray; track $index) {
+
+    <li>{{item}}</li>
+    }
+</ul>
+
+<h2>Lista de Objetos</h2>
+<!-- Nao precisa converter um array de objetos com o uso das [], não funciona e buga -->
+<ul>
+    @for (item of arrayObjects; track $index) {
+    <li>{{item.aluno}} - {{item.curso}} - {{item.idade}}</li>
+    }
+</ul>
+
+<input type="text" #aluno class="border-4 border-black">
+<button (click)="addAluno(aluno.value)">Adicionar aluno</button>
+
+<h2>Lista Vazia</h2>
+<ul>
+    @for (item of listaVazia; track $index) {
+    <li>{{item}}</li>
+    } @empty {
+    <div>Não há nada!</div>
+    }
+</ul>
+
+<h2>Switch</h2>
+@switch (switchVar) { @case ('A') {
+<div>Case A</div>
+} @case ('B') {
+<div>Case B</div>
+} @default {
+<div>Nenhum dos casos foi aceito</div>
+} }

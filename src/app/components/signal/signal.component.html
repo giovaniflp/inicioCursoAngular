@@ -1,0 +1,18 @@
+<h1>Signal</h1>
+
+<div>
+    <h2>{{name}} - {{lastName()}}</h2>
+    <h2>{{fullname()}}</h2>
+    <input #inputSobrenome type="text" class="border-4 border-black">
+    <button (click)="alterarSobrenome(inputSobrenome.value)">Alterar o Sobrenome</button>
+</div>
+<div>
+    <h2>Lista de Nomes</h2>
+    <ul>
+        @for (item of nomes(); track $index) {
+        <li>{{item}}</li>
+        }
+    </ul>
+    <input type="text" #nomeInserir class="border-4 border-black">
+    <button (click)="alterarArray(nomeInserir.value)">Inserir um Nome</button>
+</div>
