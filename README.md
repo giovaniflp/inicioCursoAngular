@@ -1,3 +1,7 @@
+# Observações
+
+Em app.component.html, os componentes estão comentados, só tirar os comentário para ver na página principal do app e ao baixar, dar npm install.
+
 # Iniciocurso
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.8.
